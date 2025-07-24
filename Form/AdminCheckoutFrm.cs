@@ -73,7 +73,16 @@ namespace Menu_Management
             }
 
             Report report = new Report();
-            report.Load("C:/Users/Phu/Desktop/.net project/Menu Management/Reports/ItemWiseReport.frx"); //cần thêm file
+            try
+            {
+                report.Load("C:/Users/Phu/Desktop/.net project/Menu Management/Reports/ItemWiseReport.frx"); //đây là đường dẫn cố định
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui lòng đọc file README.md\n" + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             //thêm tham số cho báo cáo
             report.SetParameterValue("FromDate", fromDate);
             report.SetParameterValue("ToDate", toDate);
