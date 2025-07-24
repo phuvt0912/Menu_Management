@@ -45,6 +45,11 @@ namespace Menu_Management.Class
                 sqlcon.Open();
                 SqlCommand sqlcmd = new SqlCommand("SELECT * FROM Categories", sqlcon);
                 SqlDataReader reader = sqlcmd.ExecuteReader();
+                if (!reader.HasRows) //Kiểm tra xem có danh mục nào không
+                {
+                    MessageBox.Show("No categories found in the database.\nPlease the README.md file for this", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Application.Exit(); //Nếu không có danh mục nào thì thoát ứng dụng
+                }
                 while (reader.Read())
                 {
                     string categoryName = reader["CategoryName"].ToString();
@@ -52,7 +57,7 @@ namespace Menu_Management.Class
                     string ID = reader["CategoryID"].ToString();
                     Image categoryImage = convertToImage(cateimgdata);
                     UC_CategoryItem categoryItem = new UC_CategoryItem(categoryName, categoryImage, ID);
-                   
+
 
                     categoryItem.OnCategorySelect += (sender, e) => //Gán hành động cho sự kiện đã khai báo trước
                     {
@@ -187,6 +192,5 @@ namespace Menu_Management.Class
                 }    
             }    
         }
-        
     }
 }
