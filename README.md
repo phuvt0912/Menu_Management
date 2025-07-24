@@ -53,4 +53,16 @@ INSERT INTO Categories VALUES
 Thay <đường-dẫn> bằng đường dẫn thật trên máy của bạn dẫn đến thư mục chứa ảnh.
 
 
+## 🔐 Tài khoản đăng nhập mặc định
+
+Hệ thống đã tạo sẵn 2 tài khoản mẫu trong CSDL:
+
+| Loại tài khoản | Tên đăng nhập | Mật khẩu  |
+|----------------|----------------|-----------|
+| Admin          | `admin`        | `123456`  |
+| Nhân viên      | `employee1`    | `123456`  |
+
+> ⚠️ Bạn có thể đăng nhập bằng các tài khoản trên để sử dụng ứng dụng.  
+> Nên thay đổi mật khẩu nếu dùng trong môi trường thật.
+
 
